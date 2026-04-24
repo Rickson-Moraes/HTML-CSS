@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1em;
+  width: 100%;
+}
+
+.card img {
+  width: 80%;
+  height: auto;
+}
+
+.conteudo {
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: rgb(97, 24, 24);
+  }
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.resumo {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.texto {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
