@@ -1,0 +1,191 @@
+body { /*muda a font e os espaços das bordas da pagina junto, também muda o fundo da pagina deixando meio cinza*/
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+
+/* Container com GRID */
+.Rickson_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Separou 3 Colunas para o PC */
+  gap: 20px;
+}
+
+/* Cards */
+.Rickson_card { /*este card deixa a borda arredondada e cria uma sombra na parte de trás do card*/
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.Rickson_card img { /*seleciona a imagem dentro do card e mexe no tamanho da imagem*/
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.Rickson_card h2 { /*centraliza todos os Titulos*/
+  text-align: center;
+}
+
+.Rickson_nada{ /*ele tira a marcação de lista da Auto Descrição*/
+    list-style-type: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) { /*caso a tela for menor que 600 px ele empilha as colunas*/
+  .Rickson_container {
+    grid-template-columns: 1fr; /*celular*/
+  }
+}
+
+.Rickson_btn {
+  margin-top: 30px;
+  padding: 12px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Rickson_btn:hover {
+  background-color: darkred;
+}
+
+// Criar botão via DOM
+let botao = document.createElement("button");
+botao.textContent = "Transformar!";
+botao.classList.add("Rickson_btn");
+
+// Colocar o botão na página
+document.body.appendChild(botao);
+
+let transformado = false;
+
+// Evento de clique
+botao.addEventListener("click", function () {
+
+  if (!transformado) {
+
+    // Muda título
+    document.querySelector(".Rickson_titulo").textContent =
+      "Super Choque - Alter Ego Ativado";
+
+    // Troca primeiro card (identidade)
+    document.querySelectorAll(".Rickson_card")[0].innerHTML = `
+      <h2>Super Choque (Static)</h2>
+      <img src="https://preview.redd.it/opinions-on-static-v0-twvay04bqu8e1.jpeg?width=640&crop=smart&auto=webp&s=597bb59374f489345e8f4d87603d25f48e148f4b">
+      <ul>
+        <li>Idade: 15 anos</li>
+        <li>Estado: cidade de Dakota</li>
+        <li>Base: Sua Propria Casa</li>
+      </ul>
+
+      <h2>Auto Descrição</h2>
+      <ul class="Rickson_nada">
+        <li>"Vou dar um Choque no seu Sistema"</li>
+      </ul>
+    `;
+
+    // Segundo card
+    document.querySelectorAll(".Rickson_card")[1].innerHTML = `
+      <h2>Habilidades</h2>
+      <ul>
+        <li>Manipulação de eletromagnetismo, permitindo gerar eletricidade, voar, prender inimigos e controlar dispositivos eletrônicos.</li>
+      </ul>
+    `;
+
+    // Terceiro card
+    document.querySelectorAll(".Rickson_card")[2].innerHTML = `
+      <h2>Inimigos</h2>
+      <ul>
+        <li>Ébon (Ivan Evans)</li>
+        <li>Garra</li>
+        <li>Sombra</li>
+        <li>Homem-Elastico</li>
+      </ul>
+    `;
+
+    botao.textContent = "Voltar à identidade civil";
+    document.body.style.backgroundColor = "#0b1663";
+
+    transformado = true;
+
+  } else {
+
+    // volta tudo (forma mais simples e correta)
+    location.reload();
+
+  }
+
+});
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="design.css">
+  <title>Alter Ego</title>
+</head>
+
+<body>
+
+  <h1 class="Rickson_titulo">Alter Ego</h1>
+
+  <div class="Rickson_container">
+
+    <div class="Rickson_card">
+      <h2>Rickson Moraes Brazelino</h2>
+      <img src="https://png.pngtree.com/png-vector/20190508/ourmid/pngtree-vector-question-mark-icon-png-image_1028353.jpg" alt="Imagem">
+
+      <ul>
+        <li>Tem: 24 anos</li>
+        <li>Estado Civil: Solteiro</li>
+        <li>Sua comida é: frango assado</li>
+        <li>Torce para um time de basquete: Golden State Warriors (GSW)</li>
+      </ul>
+
+      <h2>Auto Descrição</h2>
+      <ul class="Rickson_nada">
+        <li>"Sou preguiçoso porém curioso, sempre que alguém me pede ajuda estendo a mão</li>
+        <li>Tenho dificuldades em confiar nas pessoas facilmente</li>
+        <li>Quando pego confiança pode contar comigo com o que der e vier"</li>
+      </ul>
+    </div>
+
+    <div class="Rickson_card">
+      <h2>Hobbies</h2>
+      <ul>
+        <li>Gosta de fazer piadas</li>
+        <li>Entrou para o time de basquete da faculdade</li>
+        <li>Gosta de jogar no computador</li>
+        <li>Segunda e Quarta são seus dias preferidos para treinar</li>
+      </ul>
+    </div>
+
+    <div class="Rickson_card">
+      <h2>Outras Informações</h2>
+      <ul>
+        <li>Carrega o sonho de ser dublador</li>
+        <li>Desde criança é viciado em desenhos</li>
+        <li>Come mais do que aparenta</li>
+        <li>Muito calmo mas perde a paciência fácil</li>
+        <li>Quando criança gostava de passar o braço perto da TV de tubo por conta da estatica</li>
+      </ul>
+    </div>
+
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
